@@ -1,9 +1,9 @@
 <html>
 <head>
-	<title>Welcome to College Buddies-login page</title>
+	<title>Welcome to College Connect-login page</title>
 </head>
 <body>
-	<h1>Welcome to My Collge Buddies!!</h1>
+	<h1>Welcome to My Collge Connect!!</h1>
 	<form action="/login/login.php" method="post">
 		<table>
 		<tr>
