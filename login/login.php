@@ -16,7 +16,7 @@ else{
 	}
 	//setcookie("user_id", $user['id'], time()+(3600*24*7),"/");
 	if(isset($_COOKIE['user_id'])){
-	header('Location: /user/account/home.php');
+		header('Location: /user/account/home.php');
 	}
 	else{
 		header('Location: /user/account/home.php?user_id='.$user['id']);

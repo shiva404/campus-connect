@@ -1,0 +1,4 @@
+/login/login.php -- header action --home page url needs to be fixed
+/register/index.php -- form action 
+/user/account/home.php -- topic creation page  
+../threads/createthread.php -- header action
