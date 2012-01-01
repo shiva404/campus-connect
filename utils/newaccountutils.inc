@@ -20,7 +20,8 @@ function add_new_user_to_db($fullname, $password, $email){
 	mysql_select_db("fdb1",$con);
 	$today = date("Y-m-d H:i:s");
 	$query="Insert into users(first_name, email_id, password,created_at, updated_at) ".
-		"values('$fname', '$email','$password','".$today."','".$today.")";
+		"values('$fullname', '$email','$password','".$today."','".$today."')";
+	echo $query;
 	mysql_query($query,$con);
 	mysql_close($con);
 }

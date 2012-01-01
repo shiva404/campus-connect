@@ -6,7 +6,7 @@ include_once ($_SERVER['DOCUMENT_ROOT']."/user/topics/topicutils.inc");
 $topic_id=$_GET['topic_id'];
 $topic_detail=get_topic_details($topic_id);
 ?>
-<table width="100%">
+<table>
   <tr>
     <td width=60%>&nbsp;</td>
     <td><a href="/user/threads/createthread.php?topic_id=<?php echo $topic_detail[id]."&topic_name=".$topic_detail[name]; ?>">Create new thread</a></td>

@@ -8,14 +8,14 @@ else{
 }
 $user_data=get_user_data($user_id);
 ?>
-<table width="100%">
+<table>
   <tr >
     <td width="60%"><?php echo "Welcome,".$user_data['first_name']. $user_data['last_name']."!!";?></td>
     <td><a href="/user/topics/createtopic.php">Create new topic</a></td>
   </tr>
 </table>
 
-<table width="100%">
+<table>
 <tr>
 <td width="20%">
 <table>
