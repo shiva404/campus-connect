@@ -1,6 +1,8 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT']."/user/topics/topicutils.inc");
-include_once ($_SERVER['DOCUMENT_ROOT']."/utils/database.inc");
+include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
+$config = Config::singleton();
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getTopicUtils());
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getDataBaseUtils());
 if(isset($_POST['submitted'])){
 	$topic_id=$_POST['topic_id'];
 	$user_id=$_COOKIE['id'];
@@ -10,9 +12,8 @@ if(isset($_POST['submitted'])){
 values ('$question', $topic_id, $user_id, '$today', '$today')";
 	$con=get_defalult_connection();
 	mysql_select_db("fdb1",$con);
-	echo $query;
 	$result=mysql_query($query,$con);
-	header('Location: /user/topics/topicdetail.php?topic_id='.$topic_id);
+	header('Location: '.$config->getTopicDetailPage().'?topic_id='.$topic_id);
 }
 /* you need to validate whether the user who is accessing this is valid or not...
  other wise data missuse will happen

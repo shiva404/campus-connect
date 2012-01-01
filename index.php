@@ -1,11 +1,12 @@
 <?php 
+include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
+$config = Config::singleton();
 if(isset($_COOKIE['id'])){
-				header('Location: /user/account/home.php');
+				header('Location: '.$config->getUserHomePage());
 			}
 			else{
-				header('Location: /login/login.php');
+				header('Location: '.$config->getLoginPage());
 			}
-
 ?>
 <!--  <table>
 		<tr>

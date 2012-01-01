@@ -1,4 +1,6 @@
 <?php 
+include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
+$config = Config::singleton();
 include_once ($_SERVER['DOCUMENT_ROOT']."/utils/database.inc");
 if(isset($_POST['submitted'])){
 #	$threadname=$_POST['threadname'];
@@ -31,10 +33,9 @@ if(isset($_POST['submitted'])){
 	mysql_select_db("fdb1",$con);
 	echo $query;
 	$result=mysql_query($query,$con);
-
 	mysql_close($con);
 	
-	header('Location: /user/account/home.php');
+	header('Location: '.$config->getUserHomePage());
 }
 ?>
 <form action=<?php echo  $_SERVER['PHP_SELF'];?> method="post">
@@ -53,7 +54,7 @@ if(isset($_POST['submitted'])){
 <td><label id="topic">Parent Topic:</label></td>
 <td><select name="parenttopic"><option value=""> &nbsp;</option>
 <?php 
-include_once ($_SERVER['DOCUMENT_ROOT']."/utils/commonfunctions.inc");
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getCommonUtils());
 if(isset($_COOKIE['college_id'])){
 		$college_id=$_COOKIE['college_id'];
 	}

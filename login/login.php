@@ -5,7 +5,7 @@ if(isset($_POST['request']))
 switch ($_POST['request']){
 	case "login":
 		error_log("Case: login");
-		include_once ($_SERVER['DOCUMENT_ROOT']."/utils/loginutils.inc");
+		include_once ($_SERVER['DOCUMENT_ROOT'].$config->getLoginUtils());
 		$uname = $_POST['uname'];
 		$password=$_POST['password'];
 		$user=login($uname, $password);
@@ -19,14 +19,13 @@ switch ($_POST['request']){
 				setcookie($key, $value, time()+(3600*24*7),"/");
 			}
 			if(isset($_COOKIE['id'])){
-				header('Location: /user/account/home.php');
+				header('Location: '.$config->getUserHomePage());
 			}
 			else{
-				header('Location: /user/account/home.php?user_id='.$user['id']);
+				header('Location: '.$config->getUserHomePage().'?user_id='.$user['id']);
 			}
 		}
 	case "register":
-		
 }
 ?>
 
@@ -39,7 +38,7 @@ switch ($_POST['request']){
 <body>
 	<div class="front-page">
 		<div class="rightside">
-			<form action="/login/login.php" method="post">
+			<form action="<?php echo $config->getLoginPage();?>" method="post">
 				<input type="hidden" name="request" value="login" /> <label>Login
 					Name: <input name="uname" type="text" size="20"
 						
@@ -56,7 +55,7 @@ switch ($_POST['request']){
 			</form>
 		</div>
 		<div class="front-signup">
-			<form action="/register/newuser.php" method="post">
+			<form action="<?php echo $config->getNewUserPage();?>" method="post">
 				<input type="hidden" name="request" value="register" />
 				<table>
 					<tr>

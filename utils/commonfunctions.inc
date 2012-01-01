@@ -1,5 +1,7 @@
-<?php 
-include_once ($_SERVER['DOCUMENT_ROOT']."/utils/database.inc");
+<?php
+include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
+$config=Config::singleton();
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getDataBaseUtils());
 function get_college_list(){
 	$con=get_defalult_connection();
 	$query="select college_name,id from colleges";
@@ -56,6 +58,7 @@ function get_my_threads($uid){
 	mysql_close($con);
 }
 function get_my_topics($uid){
+	$config = Config::singleton();
 	$con=get_defalult_connection();
 	$query="select name,id from topics where owner=$uid and privacy=0";
 	//echo $query;
@@ -63,11 +66,11 @@ function get_my_topics($uid){
 	$result=mysql_query($query,$con);
 	echo "<tr><th>Public Topics</th></tr>";
 	if(!$result){
-		echo "<tr><td><a href='/user/topics/createtopic.php'>+create new topic</a><td><tr>";
+		echo "<tr><td><a href='".$config->getNewTopicPage()."'>+create new topic</a><td><tr>";
 	}
 	while($info = mysql_fetch_array( $result ))
 	{
-		echo "<tr><td><a href='/user/topics/topicdetails.php?topic_id=".$info['id']."'>".$info['name']."</a></td></tr>";
+		echo "<tr><td><a href='".$config->getTopicDetailPage()."?topic_id=".$info['id']."'>".$info['name']."</a></td></tr>";
 	}
 	$query="select name,id from topics where owner=$uid and privacy=1";
 	//echo $query;
@@ -76,7 +79,7 @@ function get_my_topics($uid){
 	echo "<tr><th>Private Topics</th></tr>";
 	while($info = mysql_fetch_array( $result ))
 	{
-		echo "<tr><td><a href='/user/topics/topicdetail.php?topic_id=".$info['id']."'>".$info['name']."</a></td></tr>";
+		echo "<tr><td><a href='".$config->getTopicDetailPage()."?topic_id=".$info['id']."'>".$info['name']."</a></td></tr>";
 	}
 	mysql_close($con);
 }

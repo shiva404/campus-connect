@@ -1,5 +1,7 @@
 <?php 
-include_once ($_SERVER['DOCUMENT_ROOT']."/utils/database.inc");
+include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
+$config = Config::singleton();
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getDataBaseUtils());
 function get_topic_details($topic_id){
 	$con=get_defalult_connection();
 	$query="select * from topics where id=$topic_id";

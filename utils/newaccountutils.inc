@@ -1,5 +1,7 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT']."/utils/database.inc");
+include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
+$config = Config::singleton();
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getDataBaseUtils());
 function add_user_to_db($fname, $lname, $uname, $password, $email, $phno, $usn, $college_id){
 	$con=get_defalult_connection();
 	mysql_select_db("fdb1",$con);

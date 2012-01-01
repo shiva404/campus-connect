@@ -1,5 +1,7 @@
 <?php 
-include_once ($_SERVER['DOCUMENT_ROOT']."/utils/newaccountutils.inc");
+include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
+$config = Config::singleton();
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getNewuserUtils());
 $fullname=$_POST['fullname'];
 $password=$_POST['password'];
 $email=$_POST['email'];

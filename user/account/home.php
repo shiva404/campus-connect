@@ -1,5 +1,7 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT']."/utils/commonfunctions.inc");
+include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
+$config = Config::singleton();
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getCommonUtils());
 if(isset($_COOKIE['id'])){
 $user_id=$_COOKIE['id'];
 }
@@ -11,7 +13,7 @@ $user_data=get_user_data($user_id);
 <table>
   <tr >
     <td width="60%"><?php echo "Welcome,".$user_data['first_name']. $user_data['last_name']."!!";?></td>
-    <td><a href="/user/topics/createtopic.php">Create new topic</a></td>
+    <td><a href="<?php echo $config->getNewTopicPage()?>">Create new topic</a></td>
   </tr>
 </table>
 

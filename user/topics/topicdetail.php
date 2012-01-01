@@ -1,5 +1,7 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT']."/user/topics/topicutils.inc");
+include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
+$config = Config::singleton();
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getTopicUtils());
 /* you need to validate whether the user who is accessing this is valid or not...
  other wise data missuse will happen
 */
@@ -9,7 +11,7 @@ $topic_detail=get_topic_details($topic_id);
 <table>
   <tr>
     <td width=60%>&nbsp;</td>
-    <td><a href="/user/threads/createthread.php?topic_id=<?php echo $topic_detail[id]."&topic_name=".$topic_detail[name]; ?>">Create new thread</a></td>
+    <td><a href="<?php echo $config->getNewThreadPage();?>?topic_id=<?php echo $topic_detail[id]."&topic_name=".$topic_detail[name]; ?>">Create new thread</a></td>
   </tr>
 </table>
 
