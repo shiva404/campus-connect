@@ -16,7 +16,7 @@ if($_POST['update']){
 
 	$directory_self = str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['PHP_SELF']);
 	$uploadsDirectory = $_SERVER['DOCUMENT_ROOT'] . $directory_self . 'uploaded_files/';
-	$uploadSuccess = 'http://' . $_SERVER['HTTP_HOST'] . $directory_self . 'upload.success.php';
+//#	$uploadSuccess = 'http://' . $_SERVER['HTTP_HOST'] . $directory_self . 'upload.success.php';
 	$fieldname = 'image';
 
 	$errors = array(1 => 'php.ini max file size exceeded',
@@ -32,7 +32,7 @@ if($_POST['update']){
 	{
 		$now++;
 	}
-
+	error_log($uploadFilename);
 	@move_uploaded_file($_FILES[$fieldname]['tmp_name'], $uploadFilename)
 	or error('receiving directory insuffiecient permission', $uploadForm);
 
@@ -69,7 +69,7 @@ function error($error, $location, $seconds = 5)
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/register/newaccount.php" method="post" name="newaccount"
+	<form action="<?php $config->getUpdatePage();?>" method="post" name="newaccount"
 		enctype="multipart/form-data">
 		<input type="hidden" name="MAX_FILE_SIZE"
 			value="<?php echo $max_file_size ?>"> <input name="update"

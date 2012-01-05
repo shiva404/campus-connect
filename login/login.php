@@ -26,6 +26,11 @@ switch ($_POST['request']){
 			}
 		}
 	case "register":
+		include_once ($_SERVER['DOCUMENT_ROOT'].$config->getNewuserUtils());
+		$fullname=$_POST['fullname'];
+		$password=$_POST['password'];
+		$email=$_POST['email'];
+		add_new_user_to_db($fullname, $password, $email);
 }
 ?>
 
@@ -55,7 +60,7 @@ switch ($_POST['request']){
 			</form>
 		</div>
 		<div class="front-signup">
-			<form action="<?php echo $config->getNewUserPage();?>" method="post">
+			<form action="<?php echo $config->getLoginPage();?>" method="post">
 				<input type="hidden" name="request" value="register" />
 				<table>
 					<tr>
