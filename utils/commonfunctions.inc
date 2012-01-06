@@ -94,10 +94,12 @@ select user_id2 from friendrelation where user_id1=$user_id
 	//echo $query;
 	mysql_select_db("fdb1",$con);
 	$result=mysql_query($query,$con);
-	echo "<tr><th>My friends</th></tr>";
+	echo "<tr><th>Friends</th></tr>";
 	while($info = mysql_fetch_array( $result ))
 	{
-		echo "<tr><td><a href='/user/friends/friendsprofile.php?user_id=".$info['id']."'>".$info['first_name']." &nbsp;".$info['last_name'] ."</a></td></tr>";
+		echo "<tr><td><img src=/user/account/uploaded_files/".$info['user_name'].".jpg width='50px' height='50px'/></td>".
+		
+		"<td><a href='/user/friends/friendsprofile.php?user_id=".$info['id']."'>".$info['first_name']." &nbsp;".$info['last_name'] ."</a></td></tr>";
 	}
 	mysql_close($con);
 }

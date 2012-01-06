@@ -36,7 +36,7 @@ if($_POST['update']){
 	@move_uploaded_file($_FILES[$fieldname]['tmp_name'], $uploadFilename)
 	or error('receiving directory insuffiecient permission', $uploadForm);
 
-	header('Location: ' . $uploadSuccess);
+	header('Location: ' . $config->getUserHomePage());
 }
 function error($error, $location, $seconds = 5)
 {

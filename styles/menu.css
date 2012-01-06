@@ -1,0 +1,32 @@
+.hovermenu ul{
+font: bold 13px arial;
+padding-left: 0;
+margin-left: 0;
+height: 20px;
+width: 120px;
+}
+
+.hovermenu ul li{
+list-style: none;
+display: inline;
+
+}
+
+.hovermenu ul li a{
+padding: 2px 0.5em;
+text-decoration: none;
+float: left;
+color: black;
+background-color: #e1e1e1; 
+border: 2px solid #e1e1e1;
+width: 120px;
+}
+
+.hovermenu ul li a:hover{
+background-color: #e5e5e5; 
+border-style: outset;
+}
+
+html>body .hovermenu ul li a:active{ 
+border-style: inset;
+}

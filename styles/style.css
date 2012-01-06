@@ -24,3 +24,57 @@ body.front-page {
     width: 400px;
     right: 100px;
 }
+
+.home-page .leftside{
+	padding-top: 20px;
+	position: absolute;
+	left: 30px;
+	width: 150px;
+}
+	
+.home-page .leftside .profile-image{
+	padding-top: 20px;
+	
+	}	
+.home-page .leftside .friends{
+	
+	}	
+.home-page .leftside .hovermenu ul{
+font: bold 13px arial;
+padding-left: 0;
+margin-left: 0;
+height: 20px;
+}
+
+.home-page .leftside .hovermenu ul li{
+list-style: none;
+display: inline;
+
+}
+
+.home-page .leftside .hovermenu ul li a{
+padding: 2px 0.5em;
+text-decoration: none;
+float: left;
+color: black;
+background-color: #e1e1e1; 
+border: 2px solid #e1e1e1;
+width: 120px;
+}
+
+.home-page .leftside .hovermenu ul li a:hover{
+background-color: #e5e5e5; 
+border-style: outset;
+}
+
+.home-page .leftside .hovermenu ul li a:active{ 
+border-style: inset;
+}
+
+.home-page .rightside{
+	padding-top: 20px;
+	position: absolute;
+	right: 30px;
+	width: 150px;
+}
+	
