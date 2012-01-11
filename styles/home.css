@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+.globalcontainer {
+	width: 981px;
+	 left: -90px;
+    position: relative;
+    margin: 0 auto;
+	}
+.content{
+	
+	}
+.leftColContainer{
+	margin: 0;
+    padding: 0;
+    border-right: 1px solid #CCCCCC
+    display: block;
+    margin-left: -1px;
+    width: auto;
+	}
+.leftCol{
+	float: left;
+    padding: 20px 0 0 2px;
+    width: 179px;
+	}
+.profile-picture{
+	background-color: #FFFFFF;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 180px;
+}
+.page-navigation{
+	margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.menu-link{
+	padding-right:20px;
+	margin-left:-20px;
+	width:100%
+	}
+	
+	.contentCol{
+	padding-left: 0;
+    padding-right: 0;
+    border-left: 1px solid #CCCCCC;
+    margin-left: 181px;
+	}
+	.rightCol{
+	float: right;
+	padding-right: 0;
+	 padding-top: 56px;
+	 margin-top: 0;
+	 width: 244px;
+	}
+	.contentArea{
+	 padding-left: 18px;
+    padding-right: 25px;
+    width: 511px;
+	}
