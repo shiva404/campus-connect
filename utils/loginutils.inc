@@ -26,4 +26,9 @@ function login($uname, $password){
 		}
 	}
 }
+function removeCookies() {
+	foreach ($_COOKIE as $key => $value) { 
+		setcookie($key,"", time()-60,"/");
+	}
+}
 ?>

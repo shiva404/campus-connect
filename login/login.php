@@ -1,11 +1,14 @@
 <?php
 include_once ($_SERVER['DOCUMENT_ROOT']."/config/config.php");
 $config = Config::singleton();
-if(isset($_POST['request']))
+include_once ($_SERVER['DOCUMENT_ROOT'].$config->getLoginUtils());
+if(isset($_GET['logout'])){
+	removeCookies();
+}
+else if(isset($_POST['request'])){
 switch ($_POST['request']){
 	case "login":
 		error_log("Case: login");
-		include_once ($_SERVER['DOCUMENT_ROOT'].$config->getLoginUtils());
 		$uname = $_POST['uname'];
 		$password=$_POST['password'];
 		$user=login($uname, $password);
@@ -31,6 +34,7 @@ switch ($_POST['request']){
 		$password=$_POST['password'];
 		$email=$_POST['email'];
 		add_new_user_to_db($fullname, $password, $email);
+}
 }
 ?>
 

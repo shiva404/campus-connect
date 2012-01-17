@@ -56,7 +56,9 @@ return self::$config['utils.common'];
 public function getLoginUtils(){
 	return self::$config['utils.login'];
 }
-
+public function getHeaderPage(){
+	return self::$config['utils.header'];
+}
 
 
 public function getTestDoc(){

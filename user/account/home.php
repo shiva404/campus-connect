@@ -19,8 +19,12 @@ $user_data=get_user_data($user_id);
 	rel="stylesheet" />
 <link media="screen" type="text/css" href="/styles/menu.css"
 	rel="stylesheet" />
+	<link media="screen" type="text/css" href="/styles/header.css"
+	rel="stylesheet" />
 </head>
+
 <body>
+	<?php include_once ($_SERVER['DOCUMENT_ROOT'].$config->getHeaderPage());?>
 	<div class="globalContainer">
 		<div class="content">
 			<div class="mainContainer">
@@ -83,7 +87,6 @@ $user_data=get_user_data($user_id);
 							</tr>
 						</table>
 					</div>
-					
 				</div>
 			</div>
 		</div>
@@ -96,8 +99,6 @@ $user_data=get_user_data($user_id);
 						topic</a></td>
 			</tr>
 		</table>
-		
-		
 	-->
 
 	</div>
